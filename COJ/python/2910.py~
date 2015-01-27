@@ -1,0 +1,2 @@
+ne in xrange(int(raw_input())):
+        print lista.index(max(lista[:int(raw_input())+1]))
