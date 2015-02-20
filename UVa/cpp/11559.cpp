@@ -7,14 +7,15 @@ using namespace std;
 
 int main(){
 	int N, B, H, W, p, a, min = 1000000;
-	while(scanf("%d %d %d %d\n", &N, &B, &H, &W)){
+	while(scanf("%d %d %d %d\n", &N, &B, &H, &W) != EOF){
 		for(int i = 0 ; i < H ; i++){
 			scanf("%d\n", &p);
-			if(p*N > B || p*N > min){
-				continue;
-			}
 			stringstream ss;
 			string s;
+			if(p*N > B || p*N > min){
+				getline(cin, s);
+				continue;
+			}
 			getline(cin, s);
 			ss << s;
 			for(int j = 0 ; j < W ; j++){
