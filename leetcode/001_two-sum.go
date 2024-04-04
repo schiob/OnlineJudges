@@ -10,10 +10,18 @@ func main() {
 }
 
 func twoSum(nums []int, target int) []int {
+	mapa := make(map[int][]int)
+
 	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			if nums[i]+nums[j] == target {
-				return []int{i, j}
+		mapa[nums[i]] = append(mapa[nums[i]], i)
+	}
+
+	for j := 0; j < len(nums); j++ {
+		if arrIdx, ok := mapa[target-nums[j]]; ok {
+			for _, idx := range arrIdx {
+				if idx != j {
+					return []int{j, idx}
+				}
 			}
 		}
 	}
